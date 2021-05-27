@@ -24,14 +24,16 @@ def collatz(n)
 end
 
 def longest_collatz
-  longest = []
+  length = 0
+  value = 0
 
-  (100000...1000000).each do |i|
-    array = collatz(i)
-    if array.length > longest.length  
-      longest = array
+  (500000...1000000).each do |i|
+    current_length = collatz(i).length
+    if current_length > length  
+      length = current_length
+      value = i
     end
   end
 
-  longest[0]
+  value
 end
